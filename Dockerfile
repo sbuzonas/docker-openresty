@@ -14,7 +14,6 @@ ENV VAR_PREFIX=/var/nginx
 
 RUN apk add --update \
     ca-certificates \
-    py-pip \
     openssl=${OPENSSL_VERSION} \
     dnsmasq=${DNSMASQ_VERSION} \
     python=${PYTHON_VERSION} && \
@@ -22,7 +21,6 @@ RUN apk add --update \
     wget -qO /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_amd64 && \
     chmod +x /usr/local/bin/dumb-init && \
     sed -i 's/#user=/user=root/g' /etc/dnsmasq.conf && \
-    apk del py-pip && \
     rm -rf /var/cache/apk/*
 
 RUN apk add --update --virtual build-deps \
