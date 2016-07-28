@@ -14,6 +14,7 @@ ENV VAR_PREFIX=/var/nginx
 
 RUN apk add --update \
     ca-certificates \
+    py-pip \
     openssl=${OPENSSL_VERSION} \
     dnsmasq=${DNSMASQ_VERSION} \
     python=${PYTHON_VERSION} && \
@@ -85,4 +86,4 @@ WORKDIR $NGINX_PREFIX/
 
 COPY supervisord.conf /etc/supervisord.conf
 
-CMD ["dumb-init", "supervisord" ]
+CMD ["dumb-init", "supervisord", "-c", "/etc/supervisord.conf"]
