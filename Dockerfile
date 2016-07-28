@@ -71,10 +71,10 @@ RUN apk add --update --virtual build-deps \
     make -j${NPROC} && \
     echo "==> Installing OpenResty..." && \
     make install && \
-    ln -sf ${NGINX_PREFIX}/sbin/nginx /usr/local/sbin/nginx && \
-    ln -sf ${NGINX_PREFIX}/sbin/nginx /usr/local/sbin/openresty && \
+    ln -sf ${NGINX_PREFIX}/sbin/nginx /usr/local/bin/nginx && \
+    ln -sf ${NGINX_PREFIX}/sbin/nginx /usr/local/bin/openresty && \
     ln -sf ${OPENRESTY_PREFIX}/bin/resty /usr/local/bin/resty && \
-    ln -sf ${OPENRESTY_PREFIX}/luajit/bin/luajit-* ${OPENRESTU_PREFIX}/luajit/bin/lua && \
+    ln -sf ${OPENRESTY_PREFIX}/luajit/bin/luajit-* ${OPENRESTY_PREFIX}/luajit/bin/lua && \
     ln -sf ${OPENRESTY_PREFIX}/luajit/bin/luajit-* /usr/local/bin/lua && \
     echo "==> Cleaning up..." && \
     cd / && \
